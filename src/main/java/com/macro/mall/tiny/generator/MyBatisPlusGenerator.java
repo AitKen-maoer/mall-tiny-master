@@ -114,7 +114,6 @@ public class MyBatisPlusGenerator {
     /**
      * 初始化策略配置
      */
-
     private static StrategyConfig initStrategyConfig(String[] tableNames) {
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);

@@ -1,5 +1,7 @@
 package com.macro.mall.tiny.modules.pms.mapper;
 
+import com.macro.mall.tiny.dto.ProductConditionDTO;
+import com.macro.mall.tiny.dto.ProductUpdateInitDTO;
 import com.macro.mall.tiny.modules.pms.model.Product;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface ProductMapper extends BaseMapper<Product> {
 
+    ProductUpdateInitDTO getUpdateInfo(Long id);
 }

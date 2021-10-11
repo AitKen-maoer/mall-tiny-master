@@ -3,6 +3,8 @@ package com.macro.mall.tiny.modules.pms.service;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.macro.mall.tiny.dto.ProductConditionDTO;
+import com.macro.mall.tiny.dto.ProductSaveParamsDTO;
+import com.macro.mall.tiny.dto.ProductUpdateInitDTO;
 import com.macro.mall.tiny.modules.pms.model.Product;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -21,4 +23,10 @@ public interface ProductService extends IService<Product> {
     Page list(ProductConditionDTO productConditionDTO);
 
     boolean updataNewStatus(List<Long> ids, Integer newStatus, SFunction<Product, ?> getNewStatus);
+
+    boolean createProduct(ProductSaveParamsDTO productSaveParamsDTO);
+
+    ProductUpdateInitDTO getUpdateInfo(Long id);
+
+    boolean updateProduct(ProductSaveParamsDTO productSaveParamsDTO);
 }

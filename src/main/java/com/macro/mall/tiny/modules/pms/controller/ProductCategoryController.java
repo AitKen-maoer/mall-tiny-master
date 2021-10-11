@@ -22,8 +22,6 @@ import java.util.List;
  * 产品分类 前端控制器
  * </p>
  *
- * @author XuShu
- * @since 2021-09-18
  */
 @RestController
 @RequestMapping("/productCategory")

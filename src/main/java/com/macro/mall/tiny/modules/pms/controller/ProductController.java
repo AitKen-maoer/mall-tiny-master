@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.macro.mall.tiny.common.api.CommonPage;
 import com.macro.mall.tiny.common.api.CommonResult;
 import com.macro.mall.tiny.dto.ProductConditionDTO;
+import com.macro.mall.tiny.dto.ProductSaveParamsDTO;
+import com.macro.mall.tiny.dto.ProductUpdateInitDTO;
 import com.macro.mall.tiny.modules.pms.model.Product;
 import com.macro.mall.tiny.modules.pms.model.ProductCategory;
 import com.macro.mall.tiny.modules.pms.service.ProductService;
@@ -111,7 +113,50 @@ public class ProductController {
         }
     }
 
+    /**
+     * 添加商品
+     * @param productSaveParamsDTO
+     * @return
+     */
+    @ApiOperation(value = "添加商品")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public CommonResult createProduct(@RequestBody ProductSaveParamsDTO productSaveParamsDTO){
+        boolean result = productService.createProduct(productSaveParamsDTO);
+        if(result){
+            return CommonResult.success(result);
+        }else{
+            return CommonResult.failed();
+        }
+    }
 
+    /**
+     * 查看商品信息
+     * @param id
+     * @return
+     */
+    @ApiOperation(value = "查看商品信息")
+    @RequestMapping(value = "/updateInfo/{id}", method = RequestMethod.GET)
+    public CommonResult createProduct(@PathVariable Long id){
+        ProductUpdateInitDTO productUpdateInitDTO = productService.getUpdateInfo(id);
+        return CommonResult.success(productUpdateInitDTO);
+    }
+
+
+    /**
+     * 编辑商品信息
+     * @param productSaveParamsDTO
+     * @return
+     */
+    @ApiOperation(value = "编辑商品信息")
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    public CommonResult updateProduct(@RequestBody ProductSaveParamsDTO productSaveParamsDTO){
+        boolean result = productService.updateProduct(productSaveParamsDTO);
+        if(result){
+            return CommonResult.success(result);
+        }else{
+            return CommonResult.failed();
+        }
+    }
 }
 
 
