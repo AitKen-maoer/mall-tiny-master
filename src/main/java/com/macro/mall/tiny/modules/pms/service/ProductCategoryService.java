@@ -1,6 +1,8 @@
 package com.macro.mall.tiny.modules.pms.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.macro.mall.tiny.dto.HomeGoodsSaleDTO;
+import com.macro.mall.tiny.dto.HomeMenusDTO;
 import com.macro.mall.tiny.dto.ProductCateChildrenDTO;
 import com.macro.mall.tiny.dto.ProductCategoryDTO;
 import com.macro.mall.tiny.modules.pms.model.ProductCategory;
@@ -32,4 +34,7 @@ public interface ProductCategoryService extends IService<ProductCategory> {
     boolean updateSave(ProductCategoryDTO productCategoryDTO);
 
     List<ProductCateChildrenDTO> getListWithAttr();
+
+    List<HomeMenusDTO> getMenus();
+
 }

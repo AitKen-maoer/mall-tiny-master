@@ -4,9 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.macro.mall.tiny.dto.HomeGoodsSaleDTO;
+import com.macro.mall.tiny.dto.HomeMenusDTO;
 import com.macro.mall.tiny.dto.ProductCateChildrenDTO;
 import com.macro.mall.tiny.dto.ProductCategoryDTO;
-import com.macro.mall.tiny.modules.pms.mapper.ProductAttributeCategoryMapper;
 import com.macro.mall.tiny.modules.pms.model.ProductCategory;
 import com.macro.mall.tiny.modules.pms.mapper.ProductCategoryMapper;
 import com.macro.mall.tiny.modules.pms.model.ProductCategoryAttributeRelation;
@@ -37,6 +38,7 @@ public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMappe
 
     @Autowired
     ProductCategoryMapper productCategoryMapper;
+
 
     @Override
     public Page list(Long parentId, Integer pageNum, Integer pageSize) {
@@ -130,5 +132,10 @@ public class ProductCategoryServiceImpl extends ServiceImpl<ProductCategoryMappe
     @Override
     public List<ProductCateChildrenDTO> getListWithAttr() {
         return productCategoryMapper.getWithChildren();
+    }
+
+    @Override
+    public List<HomeMenusDTO> getMenus() {
+        return productCategoryMapper.getProductWithCategory();
     }
 }

@@ -1,5 +1,6 @@
 package com.macro.mall.tiny.modules.pms.mapper;
 
+import com.macro.mall.tiny.dto.HomeMenusDTO;
 import com.macro.mall.tiny.dto.ProductCateChildrenDTO;
 import com.macro.mall.tiny.modules.pms.model.ProductCategory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -17,4 +18,6 @@ import java.util.List;
 public interface ProductCategoryMapper extends BaseMapper<ProductCategory> {
 
     List<ProductCateChildrenDTO> getWithChildren();
+
+    List<HomeMenusDTO> getProductWithCategory();
 }

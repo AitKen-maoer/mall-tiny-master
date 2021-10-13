@@ -140,6 +140,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
+    @Transactional
     public boolean updateProduct(ProductSaveParamsDTO productSaveParamsDTO) {
         Product product = productSaveParamsDTO;
         boolean result = this.updateById(product);
